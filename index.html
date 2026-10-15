@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Musical Terrarium</title>
+  <meta name="description" content="A glass jar garden where plants grow from fractal math and every new leaf and bloom plays a note.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <canvas id="scene" aria-label="A glass terrarium jar with growing plants. Click the soil to plant a seed."></canvas>
+
+    <header class="hud">
+      <div class="brand">
+        <h1>Musical Terrarium</h1>
+        <p id="hint">Click inside the jar to plant a seed</p>
+      </div>
+      <div class="clock" aria-live="off">
+        <span id="day">Day 1</span>
+        <span id="time">07:12</span>
+        <span id="stats">0 plants · 0 notes</span>
+      </div>
+    </header>
+
+    <nav class="toolbar" aria-label="Garden controls">
+      <fieldset class="group seeds">
+        <legend>Seed</legend>
+        <label class="chip"><input type="radio" name="species" id="sp-fern" value="fern" checked><span><i class="dot fern"></i>Fern</span></label>
+        <label class="chip"><input type="radio" name="species" id="sp-tree" value="tree"><span><i class="dot tree"></i>Tree</span></label>
+        <label class="chip"><input type="radio" name="species" id="sp-flower" value="flower"><span><i class="dot flower"></i>Flower</span></label>
+        <label class="chip"><input type="radio" name="species" id="sp-vine" value="vine"><span><i class="dot vine"></i>Vine</span></label>
+      </fieldset>
+
+      <div class="group">
+        <button id="water" class="btn water" type="button">
+          <span>Water</span>
+          <span class="gauge" aria-hidden="true"><span id="gauge-fill"></span></span>
+        </button>
+      </div>
+
+      <fieldset class="group speed">
+        <legend>Speed</legend>
+        <label class="chip"><input type="radio" name="speed" id="speed-1" value="1" checked><span>1×</span></label>
+        <label class="chip"><input type="radio" name="speed" id="speed-5" value="5"><span>5×</span></label>
+        <label class="chip"><input type="radio" name="speed" id="speed-20" value="20"><span>20×</span></label>
+      </fieldset>
+
+      <div class="group">
+        <button id="pause" class="btn" type="button" aria-pressed="false">Pause</button>
+        <button id="clear" class="btn" type="button">Clear jar</button>
+        <button id="sound" class="btn sound" type="button" aria-pressed="false">Start sound</button>
+      </div>
+    </nav>
+
+    <div id="toast" role="status" hidden></div>
+  </main>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
